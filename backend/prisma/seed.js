@@ -5,7 +5,14 @@ const prisma = new PrismaClient();
 async function main() {
   console.log('🌱 Seeding database...');
 
-  // Clear existing data
+  // Check if database is already seeded
+  const existingCategories = await prisma.category.count();
+  if (existingCategories > 0) {
+    console.log('✅ Database already seeded, skipping...');
+    return;
+  }
+
+  // Clear existing data (only runs on first seed)
   await prisma.item.deleteMany();
   await prisma.category.deleteMany();
 

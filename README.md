@@ -298,11 +298,12 @@ For detailed deployment instructions to free hosting (Render.com), see [DEPLOYME
 1. Push code to GitHub
 2. Connect to Render.com
 3. Create Web Service with:
-   - Build: `npm install && npm run build && npm run migrate`
+   - Build: `npm install && npm run build && npm run migrate && npm run seed`
    - Start: `npm run start`
    - Add 1GB persistent disk at `/opt/render/project/src`
-4. Seed database via Render Shell: `npm run seed`
-5. Access at: `https://your-app.onrender.com`
+4. Access at: `https://your-app.onrender.com`
+
+Note: Database seeds automatically on first deploy only.
 
 **Manual deployment:**
 

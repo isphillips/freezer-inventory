@@ -47,7 +47,7 @@ git push -u origin main
    - **Region**: Choose the closest to you
    - **Branch**: `main`
    - **Runtime**: `Node`
-   - **Build Command**: `npm install && npm run build && npm run migrate`
+   - **Build Command**: `npm install && npm run build && npm run migrate && npm run seed`
    - **Start Command**: `npm run start`
    - **Plan**: Select **"Free"**
 
@@ -72,27 +72,16 @@ Render will now:
 2. Install dependencies
 3. Build the frontend
 4. Run database migrations
-5. Start the server
+5. Seed the database (first deploy only)
+6. Start the server
 
 This takes 3-5 minutes. Watch the logs in the Render dashboard.
 
----
-
-## Step 4: Seed Your Database (First Time Only)
-
-After the first deployment succeeds, you need to seed the database with initial data:
-
-1. In the Render dashboard, go to your service
-2. Click **"Shell"** in the left sidebar
-3. Run the seed command:
-   ```bash
-   npm run seed
-   ```
-4. You should see "✅ Database seeded successfully!"
+**Note:** The seed script automatically runs during build, but only seeds if the database is empty. Your data is safe on subsequent deploys.
 
 ---
 
-## Step 5: Access Your App
+## Step 4: Access Your App
 
 1. Your app URL will be: `https://your-service-name.onrender.com`
 2. Copy this URL and open it on your phone browser
