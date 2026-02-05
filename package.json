@@ -4,7 +4,6 @@
   "description": "Freezer inventory management app",
   "type": "module",
   "scripts": {
-    "install": "cd backend && npm install && cd ../frontend && npm install",
     "build": "cd frontend && npm run build && cd ../backend && npx prisma generate",
     "build:render": "cd backend && npm install && npx prisma generate && npx prisma migrate deploy && npm run seed && cd ../frontend && npm install && npm run build",
     "start": "cd backend && node src/index.js",
