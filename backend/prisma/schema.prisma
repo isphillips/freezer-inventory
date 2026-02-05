@@ -1,0 +1,40 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  items     Item[]
+}
+
+model Item {
+  id             Int       @id @default(autoincrement())
+  name           String
+  categoryId     Int
+  sortOrder      Int       @default(0)
+  quantity       Float?
+  unit           String?
+  packagedDate   DateTime?
+  expirationDate DateTime?
+  imageUrl       String?
+  notes          String?
+  status         String    @default("active") // active | consumed
+  consumedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  category       Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@index([categoryId])
+  @@index([status])
+}

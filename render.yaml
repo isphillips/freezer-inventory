@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: freezer-inventory
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build && npm run migrate
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: freezer-data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
