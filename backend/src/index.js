@@ -39,7 +39,7 @@ app.use('/api/items', itemsRouter);
 
 // Serve frontend in production
 if (isProduction) {
-  const frontendPath = path.join(__dirname, '../../../frontend/dist');
+  const frontendPath = path.join(__dirname, '../../frontend/dist');
   app.use(express.static(frontendPath));
 
   // Handle React routing - serve index.html for all non-API routes
