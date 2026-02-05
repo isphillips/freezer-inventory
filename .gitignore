@@ -9,7 +9,6 @@ frontend/node_modules/
 .env.production
 
 # Build output
-frontend/dist/
 backend/dist/
 
 # Database
